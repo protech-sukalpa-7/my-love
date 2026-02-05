@@ -160,7 +160,7 @@
             font-family: 'Dancing Script', cursive;
             position: absolute;
             top: 10%;
-            left: 50%;
+            left: 55%;
             transform: translate(-50%, -50%);
             z-index: 10;
             pointer-events: none;
@@ -506,6 +506,42 @@
             transform: scale(1.1);
             box-shadow: 0 8px 25px rgba(255, 0, 110, 0.6);
         }
+        /* ===== MOBILE QUOTE CARD FIX ===== */
+@media (max-width: 768px) {
+
+    .quote-card {
+        height: auto;
+        min-height: unset;
+    }
+
+    .quote-front,
+    .quote-back {
+        position: relative; /* remove absolute lock */
+        height: auto;
+    }
+
+    .quote-card.active .quote-back {
+        max-height: 70vh;          /* visible on phones */
+        overflow-y: auto;          /* scroll enabled */
+        padding-bottom: 2rem;
+    }
+
+    /* Smooth scrolling */
+    .quote-back {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Scrollbar styling (optional but nice) */
+    .quote-back::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    .quote-back::-webkit-scrollbar-thumb {
+        background: rgba(255, 179, 217, 0.5);
+        border-radius: 10px;
+    }
+}
+
 
         /* Romantic Quotes - SLIDE REVEAL ANIMATION */
         .quotes-section {
@@ -621,7 +657,19 @@
             color: var(--blush);
             font-weight: 600;
         }
-        /* ===== FINAL MOBILE QUOTE FIX (TEXT VISIBILITY) ===== */
+
+        /* Heart float animation */
+        @keyframes heartFloat {
+            0% {
+                transform: translateY(0) scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-120px) scale(1.2);
+                opacity: 0;
+            }
+        }
+       /* ===== FINAL MOBILE QUOTE FIX (TEXT VISIBILITY) ===== */
 @media (max-width: 768px) {
 
     .quote-front,
@@ -646,17 +694,6 @@
 }
 
 
-        /* Heart float animation */
-        @keyframes heartFloat {
-            0% {
-                transform: translateY(0) scale(0.5);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-120px) scale(1.2);
-                opacity: 0;
-            }
-        }
 
         /* ============================================
            ANIME POSTMAN DELIVERY ANIMATION - REALISTIC
@@ -1904,6 +1941,41 @@
                 max-width: 250px;
                 justify-content: center;
             }
+
+            /* Quote cards responsive adjustments */
+            .quotes-section {
+                padding: 0 1rem;
+            }
+
+            .quote-card {
+                height: auto;
+                min-height: 220px;
+            }
+
+            .quote-front,
+            .quote-back {
+                padding: 1.5rem 1rem;
+            }
+
+            .quote-text {
+                font-size: 1.1rem;
+                line-height: 1.6;
+                margin-bottom: 0.5rem;
+            }
+
+            .quote-author {
+                font-size: 1rem;
+                margin-top: 0.5rem;
+            }
+
+            .quote-icon {
+                font-size: 3rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .quote-hint {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -2002,7 +2074,7 @@
                     <div class="letter-paper">
                         <h3>A Letter to My Heart</h3>
                         <p class="greeting">My Dearest Love,</p>
-                        <p>             রোজ সকালে তোরই ছোয়ায়, কাটবে আমার ঘুম। রিনিঝিনি নুপুর দোলায়, থাকবে ভরে রুম। ঘুড়ির সাথে লাগানো আছে, তোর মনের নাটাই, ভুল বুঝে করিসনা যেনো, হৃদয় থেকে ছাটাই."আদর দেবো, সোহাগ দেবো, দেবো ভালোবাসা, হাজার কষ্টেও পূরণ করব, মনের সকল আশা.</p>
+                        <p>রোজ সকালে তোরই ছোয়ায়, কাটবে আমার ঘুম। রিনিঝিনি নুপুর দোলায়, থাকবে ভরে রুম। ঘুড়ির সাথে লাগানো আছে, তোর মনের লাটাই, ভুল বুঝে করিসনা যেনো, হৃদয় থেকে ছাটাই."আদর দেবো, সোহাগ দেবো, দেবো ভালোবাসা, হাজার কষ্টেও পূরণ করব, মনের সকল আশা.</p>
                         <p class="signature-text">Yours eternally, ❤️</p>
                     </div>
                 </div>
@@ -2155,10 +2227,14 @@
                 </div>
             </div>
         </div>
-                <footer>
+
+        <footer>
             <p>Made with 💖 just for you</p>
             <p class="signature">With All My Love</p>
             <p>Happy Valentine's Day 2026!</p>
+            
+            
+            
             <p class="copyright">© 2026 Sukalpa Manna | Created with love ❤️</p>
         </footer>
     </div>
@@ -2468,7 +2544,12 @@
         });
     </script>
 </body>
-
 </html>
+
+
+
+
+
+
 
 
